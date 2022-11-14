@@ -1,0 +1,14 @@
+version: 2 
+
+models: 
+    - name: stg_payments
+      columns: 
+        - name: id
+          tests: 
+            - unique 
+            - not_null 
+        - name: orderid
+          tests: 
+            - relationships: 
+                to: ref('stg_orders')
+                field: order_id

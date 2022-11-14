@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: sylvan-ocean-213120
+    schema: sources
+    tables:
+      - name: orders
+      - name: customers

@@ -1,0 +1,36 @@
+version: 2 
+
+models: 
+    - name: stg_customers
+      description: "{{ doc('stg_customers')}}"
+      columns: 
+        - name: customer_id
+          description: is the primary key for this table. 
+          tests: 
+            - unique
+            - not_null
+
+    - name: stg_orders
+      description: Is a fact table for all orders placed. 
+      columns:
+        - name: order_id
+          description: is the primary key for this table. 
+          tests:
+            - unique
+            - not_null
+        - name: status
+          description: "{{ doc('order_status') }}"
+          tests: 
+            - accepted_values: 
+                values: 
+                    - completed
+                    - shipped
+                    - returned
+                    - return_pending
+                    - placed
+        - name: customer_id
+          description: Is used to identify users, and to join with the stg_customers table. 
+          tests:
+            - relationships:
+                to: ref('customers')
+                field: id
