@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = "table"
+  )
+}}
+
 WITH stg_data AS (
     SELECT 
         * 
