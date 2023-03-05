@@ -19,7 +19,7 @@ WITH unnested_train_lines AS (
     CROSS JOIN UNNEST(extracted_info.train_lines) AS train_line
 ),
 
-
+--This section deduplicates the data so that we have a row for each line/tweet id combination.
 table_with_dedupe_key AS (
     SELECT 
         *,
