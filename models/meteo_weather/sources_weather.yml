@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: meteo_data
+    database: sylvan-ocean-213120
+    schema: analytics
+    tables:
+      - name: raw_open_meteo_weather_data
