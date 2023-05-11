@@ -65,7 +65,6 @@ select
     * 
 from 
     final 
---where train_line = 'Belgrave' and reason = 'Vandalism'
 order by 
         train_line desc,
         reason,
