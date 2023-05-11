@@ -27,3 +27,4 @@ SELECT
   *
 FROM
   deduped_data
+ORDER BY id ASC

@@ -23,7 +23,7 @@ WITH unnested_train_lines AS (
 table_with_dedupe_key AS (
     SELECT 
         *,
-        SHA256(CONCAT(CAST(conversation_id AS STRING),train_line)) AS dedupe_key
+        SHA256(CONCAT(CAST(id AS STRING),train_line)) AS dedupe_key
     FROM
         unnested_train_lines
 ),
