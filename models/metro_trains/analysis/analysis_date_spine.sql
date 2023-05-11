@@ -3,8 +3,7 @@ with date_spine as (
     *
   FROM 
     UNNEST(GENERATE_DATE_ARRAY((select min(aest_created_date) from {{ref('core_metro_trains')}}), (select max(aest_created_date) from {{ref('core_metro_trains')}}), INTERVAL 1 DAY)) AS date_spine
-    -- UNNEST(GENERATE_DATE_ARRAY('2023-04-01' , '2023-05-10', INTERVAL 1 DAY)) AS date_spine
-),
+ ),
 
 dsli as (
     select 
@@ -84,7 +83,6 @@ select
     *
 from 
     joined
-where train_line = 'Pakenham' and reason = 'Equipment Fault' and info_on_issue = 'Bus Replacements' --and (aest_created_date is not null or last_similar_incident is not null)
 order by 
     train_line,
     reason, 
