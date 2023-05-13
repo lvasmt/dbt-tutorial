@@ -93,16 +93,10 @@ joined as (
             fs.reason = t1.reason 
             and fs.train_line = t1.train_line 
             and fs.info_on_issue = t1.info_on_issue
-            and (
-                    (fs.date >=t1.aest_created_date and fs.date < t1.next_similar_incident)
-                    or (fs.date >=t1.aest_created_date and t1.next_similar_incident is null)
-                )
-        
+            and (fs.date >=t1.aest_created_date and (fs.date < t1.next_similar_incident or t1.next_similar_incident is null))        
 )
 
 select 
     *
 from 
     joined
-where 
-    latest_incident_date is not null

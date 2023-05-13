@@ -43,9 +43,32 @@ deduplicated_rows AS (
         numbered_rows
     WHERE
         row_num=1
+),
+
+fixed_train_names as (
+    SELECT 
+        time_of_load,
+        conversation_id,
+        id,
+        created_at,
+        ts_created_at,
+        aest_created_day_of_week,
+        aest_created_date,
+        aest_created_time,
+        text,
+        external_tagging,
+        info_type,
+        case 
+            when train_line = 'W\'town' then 'Williamstown'
+            else train_line
+        end as train_line,
+        info_on_issue,
+        reason
+    FROM    
+        deduplicated_rows
 )
 
 SELECT
     *
 FROM
-    deduplicated_rows
+    fixed_train_names
