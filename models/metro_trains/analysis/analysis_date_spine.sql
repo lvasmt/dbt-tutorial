@@ -100,3 +100,5 @@ select
     *
 from 
     joined
+where 
+    latest_incident_date is not null
