@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: ptv_data
+    database: sylvan-ocean-213120
+    schema: ptv_prod
+    tables:
+      - name: raw_ptv_disruptions
+      - name: raw_ptv_disruptions_routes
+      - name: raw_ptv_disruptions_stops
