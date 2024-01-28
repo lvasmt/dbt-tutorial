@@ -13,7 +13,8 @@ disruptions AS (
  ),
 joined AS (
   SELECT 
-  	routes.disruption_id as disruption_id,
+  	disruptions.disruption_id as disruption_id,
+    routes.route_id,
     routes.route_name,
     routes.route_type,
   	routes.route_number,
@@ -30,9 +31,9 @@ joined AS (
   	disruptions.info_on_issue,
     disruptions.reason
   FROM 
-  	routes
+  	disruptions
   LEFT JOIN 
-    disruptions
+    routes
   ON 
     disruptions.disruption_id = routes.disruption_id
     AND disruptions.file_date = routes.file_date

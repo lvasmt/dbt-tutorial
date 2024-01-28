@@ -8,3 +8,4 @@ sources:
       - name: raw_ptv_disruptions
       - name: raw_ptv_disruptions_routes
       - name: raw_ptv_disruptions_stops
+      - name: raw_ptv_stops
