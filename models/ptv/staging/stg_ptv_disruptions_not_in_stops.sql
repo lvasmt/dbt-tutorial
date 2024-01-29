@@ -28,7 +28,7 @@ disruptions as (
         left join disruptions_in_stops as dis 
             on CAST(d.disruption_id AS STRING) = CAST(dis.disruption_id AS STRING)
     where 
-        dis.disruption_id is not null 
+        dis.disruption_id is null
 ), 
 
 stops_data as (

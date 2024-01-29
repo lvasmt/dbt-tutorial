@@ -22,7 +22,7 @@ with disruptions_with_stops_specified as (
         route_type,
         route_name,
         route_number,
-        route_type_name
+        route_type_name,
 
         -- stop info
         stop_id,
@@ -59,7 +59,7 @@ disruptions_with_stops_not_specified as (
         route_type,
         route_name,
         route_number,
-        route_type_name
+        route_type_name,
 
         -- stop info
         stop_id,
@@ -79,10 +79,9 @@ unioned as (
     union all 
     select 
         * 
-    from disruptions_with_stops_specified
+    from disruptions_with_stops_not_specified
 )
 
 select distinct 
     * 
 from unioned 
---where from_date is null
